@@ -1,0 +1,3 @@
+.merchandise-wrapper {
+  @apply bg-gradient-to-r from-[#DFDFDF] to-[#B8B5B5];
+}
