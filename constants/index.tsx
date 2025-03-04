@@ -2,6 +2,28 @@ export const NAV_ITEMS = [
   {
     link: "/",
     name: "Tiaki Taonga Trust Wai 262",
+    innertitle: "Tiaki Taonga Trust Wai 262",
+    hasMegaMenu: true,
+    listTitle: "Selection of Chapters",
+    megaMenuContent: [
+      { name: "Legal Status of The Trust", link: "#" },
+      { name: "Ko Matou (Rangatira)", link: "#" },
+      { name: "Ko Mātou (Rangatahi)", link: "#" },
+      { name: "The Vision, Mission and Core Values", link: "#" },
+      {
+        name: "The Foundation (Pou) of the Trust",
+        link: "#",
+        subMenu: [
+          { title: "The Pou (Foundation of The Trust)", link: "#" },
+          { title: "Te Tiriti o Waitangi 1840", link: "#" },
+          { title: "Te Ao Māori Views", link: "#" },
+          {
+            title: "Tino Rangatiratanga (Sovereignty and Self-Determination)",
+            link: "#",
+          },
+        ],
+      },
+    ],
   },
   {
     link: "/",
@@ -11,22 +33,27 @@ export const NAV_ITEMS = [
   {
     link: "/",
     name: "AI and Cyber Security Impacts",
+    hasMegaMenu: true,
   },
   {
     link: "/",
     name: "Wai 262: Laws & Partnerships",
+    hasMegaMenu: true,
   },
   {
     link: "/",
     name: "Library",
+    hasMegaMenu: true,
   },
   {
     link: "/",
     name: "Merchandise",
+    hasMegaMenu: true,
   },
   {
     link: "/",
     name: "Registry, Requests, and Donations",
+    hasMegaMenu: true,
   },
 ];
 

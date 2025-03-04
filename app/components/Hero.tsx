@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import localFont from "next/font/local";
-
 import { HeroSocialLinks } from "@/constants";
+import Link from "next/link";
 
 const myFont = localFont({
   src: [
@@ -17,7 +17,7 @@ const myFont = localFont({
 const Hero = () => {
   return (
     <>
-      <div className="hero-wrapper relative">
+      <div className="hero-wrapper relative ">
         <div>
           <Image
             src="/images/hero-bg.jpg"
@@ -44,11 +44,11 @@ const Hero = () => {
             <ul className="flex justify-center space-x-4 mt-5">
               {HeroSocialLinks.map((link, index) => (
                 <li key={index} className="">
-                  <a
+                  <Link
                     href={link.url}
                     target="_blank"
                     className={`text-lg ${link.icon}`}
-                  />
+                  ></Link>
                 </li>
               ))}
             </ul>
