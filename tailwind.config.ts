@@ -24,6 +24,7 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           "shade-400": "hsl(var( --primary-shade-400))",
+          heading: "hsl(var(--heading))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
