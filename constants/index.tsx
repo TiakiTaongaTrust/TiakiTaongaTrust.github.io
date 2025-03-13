@@ -44,6 +44,16 @@ export const NAV_ITEMS = [
     link: "/",
     name: "Library",
     hasMegaMenu: true,
+    innertitle: "Information Library/Glossary",
+    listTitle: "Selection of Content Categories",
+    megaMenuContent: [
+      { name: "Media (Audio)", link: "#" },
+      { name: "Media (Videos)", link: "#" },
+      { name: "Taonga Rangatira ", link: "#" },
+      { name: "Wai 262 Claimants", link: "#" },
+      { name: "Wai 262 Contemporary Aspects", link: "#" },
+      { name: "International Treaties", link: "#" },
+    ],
   },
   {
     link: "/",

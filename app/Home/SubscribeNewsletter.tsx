@@ -1,5 +1,5 @@
 import React from "react";
-import InputFormField from "./UI/InputFormField";
+import InputFormField from "../components/UI/InputFormField";
 import { Button } from "@/components/ui/button";
 
 const SubscribeNewsletter = () => {

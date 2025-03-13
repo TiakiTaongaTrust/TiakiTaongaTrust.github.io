@@ -110,7 +110,7 @@ const Nav: React.FC = () => {
                         setHoveredItem(null); // Only close if the nav is not being hovered
                       }
                     }}
-                    aria-haspopup={item.hasMegaMenu ? "true" : undefined}
+                    aria-haspopup={item.hasMegaMenu ? "true" : "false"}
                     aria-expanded={hoveredItem === index}
                   >
                     <motion.span
