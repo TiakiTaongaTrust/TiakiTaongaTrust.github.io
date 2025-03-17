@@ -1,6 +1,6 @@
 import React from "react";
 
-import Hero from "../components/Hero";
+import Hero from "./Hero";
 import TrustDetail from "./TrustDetail";
 import FeaturedTopics from "./FeaturedTopics";
 import Merchandise from "./Merchandise";

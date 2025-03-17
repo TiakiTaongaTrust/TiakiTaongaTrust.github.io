@@ -7,15 +7,9 @@ import { NAV_ITEMS } from "@/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { MenuIcon } from "lucide-react";
-import { motion } from "framer-motion"; // Import framer-motion for animation
+import { motion } from "framer-motion";
 
-interface NavItem {
-  name: string;
-  link: string;
-  hasMegaMenu?: boolean;
-  megaMenuContent?: { name: string; link: string }[];
-}
-
+// Portal for the mega menu
 interface MegaMenuPortalProps {
   children: React.ReactNode;
   className?: string;
@@ -47,9 +41,9 @@ const Nav: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [isNavHovered, setIsNavHovered] = useState<boolean>(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control menu visibility under MegaMenuPortal
-  const [menuContent, setMenuContent] = useState<any>(null); // Store content for the sliding menu
-  const menuRef = useRef<HTMLDivElement>(null); // Reference to menu container
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuContent, setMenuContent] = useState<any>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
@@ -74,12 +68,13 @@ const Nav: React.FC = () => {
 
   const handleNavMouseLeave = () => {
     setIsNavHovered(false);
-    setHoveredItem(null); // Close any open mega menu when mouse leaves the entire nav
+    setHoveredItem(null);
   };
 
-  const toggleMenu = (item: NavItem) => {
-    setIsMenuOpen((prevState) => !prevState); // Toggle the sliding menu on MenuIcon click
-    setMenuContent(item.megaMenuContent); // Set content of the menu based on clicked item
+  // Toggle the submenu for a mega menu item
+  const toggleMenu = (item: any) => {
+    setIsMenuOpen((prev) => !prev);
+    setMenuContent(item.megaMenuContent);
   };
 
   return (
@@ -106,28 +101,26 @@ const Nav: React.FC = () => {
                       setHoveredItem(item.hasMegaMenu ? index : null)
                     }
                     onMouseLeave={() => {
-                      if (!isNavHovered) {
-                        setHoveredItem(null); // Only close if the nav is not being hovered
-                      }
+                      if (!isNavHovered) setHoveredItem(null);
                     }}
                     aria-haspopup={item.hasMegaMenu ? "true" : "false"}
                     aria-expanded={hoveredItem === index}
                   >
                     <motion.span
                       className="relative"
-                      whileHover={{ width: "100%" }} // On hover, expand to full width
-                      initial={{ width: 0 }} // Start with no underline
-                      animate={{ width: hoveredItem === index ? "100%" : "0%" }} // Show underline if item is hovered
-                      transition={{ duration: 0.3 }} // Smooth transition
+                      whileHover={{ width: "100%" }}
+                      initial={{ width: 0 }}
+                      animate={{ width: hoveredItem === index ? "100%" : "0%" }}
+                      transition={{ duration: 0.3 }}
                     >
                       {item.name}
                       <motion.div
                         className="absolute bottom-[-5px] left-0 h-[3px] bg-white"
-                        initial={{ width: "0%" }} // Start with no underline
+                        initial={{ width: "0%" }}
                         animate={{
                           width: hoveredItem === index ? "100%" : "0%",
-                        }} // Animate width to 100% on hover
-                        transition={{ duration: 0.3 }} // Smooth transition for the underline
+                        }}
+                        transition={{ duration: 0.3 }}
                       />
                     </motion.span>
 
@@ -137,7 +130,7 @@ const Nav: React.FC = () => {
                         <MegaMenuPortal
                           className="absolute top-[90px] left-0 w-full bg-secondary shadow-lg p-4 z-10"
                           onMouseEnter={() => setHoveredItem(index)}
-                          onMouseLeave={() => setHoveredItem(null)} // Close on leave of mega menu itself
+                          onMouseLeave={() => setHoveredItem(null)}
                         >
                           <div className="grid grid-cols-12">
                             <div className="col-span-3">
@@ -160,14 +153,16 @@ const Nav: React.FC = () => {
                                         <span className="h-[30px] w-[30px] bg-[#D9D9D9] block rounded-full" />
                                         <Link
                                           href={menuItem.link}
-                                          className="text-sm flex"
+                                          className="text-sm flex items-center"
                                         >
                                           {menuItem.name}
-                                          {menuIndex ===
-                                            item.megaMenuContent.length - 1 && (
+                                          {menuItem.isSubmenu && (
                                             <MenuIcon
                                               className="ml-4 cursor-pointer"
-                                              onClick={() => toggleMenu(item)} // Pass the item to toggle the menu content
+                                              onClick={(e) => {
+                                                e.preventDefault();
+                                                toggleMenu(item);
+                                              }}
                                             />
                                           )}
                                         </Link>
@@ -175,37 +170,37 @@ const Nav: React.FC = () => {
                                     )
                                   )}
                                 </ul>
-                                {/* Sliding Menu under MegaMenuPortal */}
-                                {isMenuOpen && menuContent && (
-                                  <motion.div
-                                    ref={menuRef}
-                                    className="absolute top-0 right-0 w-[75%] h-[220px] bg-white p-4 z-20 shadow-lg"
-                                    initial={{ x: "100%" }}
-                                    animate={{ x: isMenuOpen ? 0 : "100%" }}
-                                    exit={{ x: "100%" }}
-                                    transition={{
-                                      type: "spring",
-                                      stiffness: 300,
-                                      damping: 30,
-                                      duration: 0.5,
-                                    }}
-                                  >
-                                    {menuContent.length > 0 && (
-                                      <div>
-                                        {/* Display the title */}
-                                        <h2 className="text-md font-bold text-primary-heading  mb-2">
-                                          {
-                                            menuContent[menuContent.length - 1]
-                                              .name
-                                          }
-                                        </h2>
-
-                                        {/* Render the submenu if it exists */}
-                                        {menuContent[menuContent.length - 1]
-                                          ?.subMenu &&
-                                          menuContent[menuContent.length - 1]
-                                            ?.subMenu.length > 0 && (
-                                            <ul className=" mt-2">
+                                {/* Sliding submenu (only visible if the last item has submenu flag) */}
+                                {isMenuOpen &&
+                                  menuContent &&
+                                  menuContent[menuContent.length - 1]
+                                    ?.isSubmenu && (
+                                    <motion.div
+                                      ref={menuRef}
+                                      className="absolute top-0 right-0 w-[75%] h-[220px] bg-white p-4 z-20 shadow-lg"
+                                      initial={{ x: "100%" }}
+                                      animate={{ x: 0 }}
+                                      exit={{ x: "100%" }}
+                                      transition={{
+                                        type: "spring",
+                                        stiffness: 300,
+                                        damping: 30,
+                                        duration: 0.5,
+                                      }}
+                                    >
+                                      {menuContent[menuContent.length - 1]
+                                        ?.subMenu &&
+                                        menuContent[menuContent.length - 1]
+                                          ?.subMenu.length > 0 && (
+                                          <div>
+                                            <h2 className="text-md font-bold text-primary-heading mb-2">
+                                              {
+                                                menuContent[
+                                                  menuContent.length - 1
+                                                ].name
+                                              }
+                                            </h2>
+                                            <ul className="mt-2">
                                               {menuContent[
                                                 menuContent.length - 1
                                               ].subMenu.map(
@@ -224,17 +219,16 @@ const Nav: React.FC = () => {
                                                 )
                                               )}
                                             </ul>
-                                          )}
-                                      </div>
-                                    )}
-                                    <button
-                                      className="text-white mb-4 bg-red-500 px-2 py-1 rounded"
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      Close Menu
-                                    </button>
-                                  </motion.div>
-                                )}
+                                          </div>
+                                        )}
+                                      <button
+                                        className="text-white mb-4 bg-red-500 px-2 py-1 rounded"
+                                        onClick={() => setIsMenuOpen(false)}
+                                      >
+                                        Close Menu
+                                      </button>
+                                    </motion.div>
+                                  )}
                               </div>
                             </div>
                           </div>

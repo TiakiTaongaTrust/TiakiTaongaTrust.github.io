@@ -34,11 +34,15 @@ const Hero = () => {
               className="text-xl uppercase"
               style={{ fontFamily: "var(--font-myfont)" }}
             >
-              Te Whanui o nga Whakatupuranga Katoa
+              Nau Mai, Haere Mai
             </h1>
           </div>
           <p className="text-lg uppercase -tracking-tighter font-light">
-            To Nurture All The Generations To Come
+            Wai 262 – Whakahōnoretia te Onamata,
+            <br /> Tiakina te Anamata
+          </p>
+          <p className="text-md mt-7">
+            Honouring the Past and Protecting the Future
           </p>
           <div>
             <ul className="flex justify-center space-x-4 mt-5">

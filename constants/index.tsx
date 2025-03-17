@@ -13,6 +13,7 @@ export const NAV_ITEMS = [
       {
         name: "The Foundation (Pou) of the Trust",
         link: "#",
+        isSubmenu: true,
         subMenu: [
           { title: "The Pou (Foundation of The Trust)", link: "#" },
           { title: "Te Tiriti o Waitangi 1840", link: "#" },
@@ -52,7 +53,7 @@ export const NAV_ITEMS = [
       { name: "Taonga Rangatira ", link: "#" },
       { name: "Wai 262 Claimants", link: "#" },
       { name: "Wai 262 Contemporary Aspects", link: "#" },
-      { name: "International Treaties", link: "#" },
+      { name: "International Treaties", link: "#", isSubmenu: false },
     ],
   },
   {
