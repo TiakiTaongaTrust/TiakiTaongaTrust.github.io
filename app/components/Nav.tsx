@@ -78,173 +78,182 @@ const Nav: React.FC = () => {
   };
 
   return (
-    <nav
-      className="relative bg-primary p-4 text-white"
-      onMouseEnter={handleNavMouseEnter}
-      onMouseLeave={handleNavMouseLeave}
-    >
-      <div className="grid grid-cols-12">
-        <div className="col-span-2">
-          <Link href="/">
-            <Image src="/images/logo.svg" alt="Logo" height={120} width={120} />
-          </Link>
-        </div>
-        <div className="col-span-10">
-          <div className="flex justify-between items-center">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {NAV_ITEMS.map((item, index) => (
-                  <div
-                    key={index}
-                    className="relative flex-none w-1/3 text-center px-4 py-2 cursor-pointer"
-                    onMouseEnter={() =>
-                      setHoveredItem(item.hasMegaMenu ? index : null)
-                    }
-                    onMouseLeave={() => {
-                      if (!isNavHovered) setHoveredItem(null);
-                    }}
-                    aria-haspopup={item.hasMegaMenu ? "true" : "false"}
-                    aria-expanded={hoveredItem === index}
-                  >
-                    <motion.span
-                      className="relative"
-                      whileHover={{ width: "100%" }}
-                      initial={{ width: 0 }}
-                      animate={{ width: hoveredItem === index ? "100%" : "0%" }}
-                      transition={{ duration: 0.3 }}
+    <section className="">
+      <nav
+        className="relative bg-primary p-4 text-white"
+        onMouseEnter={handleNavMouseEnter}
+        onMouseLeave={handleNavMouseLeave}
+      >
+        <div className="grid grid-cols-12 container">
+          <div className="col-span-2">
+            <Link href="/">
+              <Image
+                src="/images/logo.svg"
+                alt="Logo"
+                height={120}
+                width={120}
+              />
+            </Link>
+          </div>
+          <div className="col-span-10">
+            <div className="flex justify-between items-center">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
+                  {NAV_ITEMS.map((item, index) => (
+                    <div
+                      key={index}
+                      className="relative flex-none w-1/3 text-center px-4 py-2 cursor-pointer"
+                      onMouseEnter={() =>
+                        setHoveredItem(item.hasMegaMenu ? index : null)
+                      }
+                      onMouseLeave={() => {
+                        if (!isNavHovered) setHoveredItem(null);
+                      }}
+                      aria-haspopup={item.hasMegaMenu ? "true" : "false"}
+                      aria-expanded={hoveredItem === index}
                     >
-                      {item.name}
-                      <motion.div
-                        className="absolute bottom-[-5px] left-0 h-[3px] bg-white"
-                        initial={{ width: "0%" }}
+                      <motion.span
+                        className="relative"
+                        whileHover={{ width: "100%" }}
+                        initial={{ width: 0 }}
                         animate={{
                           width: hoveredItem === index ? "100%" : "0%",
                         }}
                         transition={{ duration: 0.3 }}
-                      />
-                    </motion.span>
+                      >
+                        {item.name}
+                        <motion.div
+                          className="absolute bottom-[-5px] left-0 h-[3px] bg-white"
+                          initial={{ width: "0%" }}
+                          animate={{
+                            width: hoveredItem === index ? "100%" : "0%",
+                          }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </motion.span>
 
-                    {item.hasMegaMenu &&
-                      hoveredItem === index &&
-                      item.megaMenuContent && (
-                        <MegaMenuPortal
-                          className="absolute top-[90px] left-0 w-full bg-secondary shadow-lg p-4 z-10"
-                          onMouseEnter={() => setHoveredItem(index)}
-                          onMouseLeave={() => setHoveredItem(null)}
-                        >
-                          <div className="grid grid-cols-12">
-                            <div className="col-span-3">
-                              <h2 className="text-white text-title font-bold max-w-[80%]">
-                                {item.innertitle}
-                              </h2>
-                            </div>
-                            <div className="col-span-9 border-l border-white pl-10">
-                              <div className="flex flex-col">
-                                <h5 className="text-white font-bold text-md">
-                                  {item.listTitle}
-                                </h5>
-                                <ul className="flex flex-wrap mt-5">
-                                  {item.megaMenuContent.map(
-                                    (menuItem, menuIndex) => (
-                                      <li
-                                        key={menuIndex}
-                                        className="p-2 text-white hover:opacity-55 flex space-x-4 mb-5"
-                                      >
-                                        <span className="h-[30px] w-[30px] bg-[#D9D9D9] block rounded-full" />
-                                        <Link
-                                          href={menuItem.link}
-                                          className="text-sm flex items-center"
+                      {item.hasMegaMenu &&
+                        hoveredItem === index &&
+                        item.megaMenuContent && (
+                          <MegaMenuPortal
+                            className="absolute top-[90px] left-0 w-full bg-secondary shadow-lg p-4 z-10"
+                            onMouseEnter={() => setHoveredItem(index)}
+                            onMouseLeave={() => setHoveredItem(null)}
+                          >
+                            <div className="grid grid-cols-12">
+                              <div className="col-span-3">
+                                <h2 className="text-white text-title font-bold max-w-[80%]">
+                                  {item.innertitle}
+                                </h2>
+                              </div>
+                              <div className="col-span-9 border-l border-white pl-10">
+                                <div className="flex flex-col">
+                                  <h5 className="text-white font-bold text-md">
+                                    {item.listTitle}
+                                  </h5>
+                                  <ul className="flex flex-wrap mt-5">
+                                    {item.megaMenuContent.map(
+                                      (menuItem, menuIndex) => (
+                                        <li
+                                          key={menuIndex}
+                                          className="p-2 text-white hover:opacity-55 flex space-x-4 mb-5"
                                         >
-                                          {menuItem.name}
-                                          {menuItem.isSubmenu && (
-                                            <MenuIcon
-                                              className="ml-4 cursor-pointer"
-                                              onClick={(e) => {
-                                                e.preventDefault();
-                                                toggleMenu(item);
-                                              }}
-                                            />
-                                          )}
-                                        </Link>
-                                      </li>
-                                    )
-                                  )}
-                                </ul>
-                                {/* Sliding submenu (only visible if the last item has submenu flag) */}
-                                {isMenuOpen &&
-                                  menuContent &&
-                                  menuContent[menuContent.length - 1]
-                                    ?.isSubmenu && (
-                                    <motion.div
-                                      ref={menuRef}
-                                      className="absolute top-0 right-0 w-[75%] h-[220px] bg-white p-4 z-20 shadow-lg"
-                                      initial={{ x: "100%" }}
-                                      animate={{ x: 0 }}
-                                      exit={{ x: "100%" }}
-                                      transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 30,
-                                        duration: 0.5,
-                                      }}
-                                    >
-                                      {menuContent[menuContent.length - 1]
-                                        ?.subMenu &&
-                                        menuContent[menuContent.length - 1]
-                                          ?.subMenu.length > 0 && (
-                                          <div>
-                                            <h2 className="text-md font-bold text-primary-heading mb-2">
-                                              {
-                                                menuContent[
-                                                  menuContent.length - 1
-                                                ].name
-                                              }
-                                            </h2>
-                                            <ul className="mt-2">
-                                              {menuContent[
-                                                menuContent.length - 1
-                                              ].subMenu.map(
-                                                (subItem, subIndex) => (
-                                                  <li
-                                                    key={subIndex}
-                                                    className="text-gray-700"
-                                                  >
-                                                    <Link
-                                                      href={subItem.link}
-                                                      className="block p-1 hover:text-primary"
-                                                    >
-                                                      {subItem.title}
-                                                    </Link>
-                                                  </li>
-                                                )
-                                              )}
-                                            </ul>
-                                          </div>
-                                        )}
-                                      <button
-                                        className="text-white mb-4 bg-red-500 px-2 py-1 rounded"
-                                        onClick={() => setIsMenuOpen(false)}
+                                          <span className="h-[30px] w-[30px] bg-[#D9D9D9] block rounded-full" />
+                                          <Link
+                                            href={menuItem.link}
+                                            className="text-sm flex items-center"
+                                          >
+                                            {menuItem.name}
+                                            {menuItem.isSubmenu && (
+                                              <MenuIcon
+                                                className="ml-4 cursor-pointer"
+                                                onClick={(e) => {
+                                                  e.preventDefault();
+                                                  toggleMenu(item);
+                                                }}
+                                              />
+                                            )}
+                                          </Link>
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                  {/* Sliding submenu (only visible if the last item has submenu flag) */}
+                                  {isMenuOpen &&
+                                    menuContent &&
+                                    menuContent[menuContent.length - 1]
+                                      ?.isSubmenu && (
+                                      <motion.div
+                                        ref={menuRef}
+                                        className="absolute top-0 right-0 w-[75%] h-[220px] bg-white p-4 z-20 shadow-lg"
+                                        initial={{ x: "100%" }}
+                                        animate={{ x: 0 }}
+                                        exit={{ x: "100%" }}
+                                        transition={{
+                                          type: "spring",
+                                          stiffness: 300,
+                                          damping: 30,
+                                          duration: 0.5,
+                                        }}
                                       >
-                                        Close Menu
-                                      </button>
-                                    </motion.div>
-                                  )}
+                                        {menuContent[menuContent.length - 1]
+                                          ?.subMenu &&
+                                          menuContent[menuContent.length - 1]
+                                            ?.subMenu.length > 0 && (
+                                            <div>
+                                              <h2 className="text-md font-bold text-primary-heading mb-2">
+                                                {
+                                                  menuContent[
+                                                    menuContent.length - 1
+                                                  ].name
+                                                }
+                                              </h2>
+                                              <ul className="mt-2">
+                                                {menuContent[
+                                                  menuContent.length - 1
+                                                ].subMenu.map(
+                                                  (subItem, subIndex) => (
+                                                    <li
+                                                      key={subIndex}
+                                                      className="text-gray-700"
+                                                    >
+                                                      <Link
+                                                        href={subItem.link}
+                                                        className="block p-1 hover:text-primary"
+                                                      >
+                                                        {subItem.title}
+                                                      </Link>
+                                                    </li>
+                                                  )
+                                                )}
+                                              </ul>
+                                            </div>
+                                          )}
+                                        <button
+                                          className="text-white mb-4 bg-red-500 px-2 py-1 rounded"
+                                          onClick={() => setIsMenuOpen(false)}
+                                        >
+                                          Close Menu
+                                        </button>
+                                      </motion.div>
+                                    )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </MegaMenuPortal>
-                      )}
-                  </div>
-                ))}
+                          </MegaMenuPortal>
+                        )}
+                    </div>
+                  ))}
+                </div>
               </div>
+              <Button onClick={isLastSlide ? scrollToStart : scrollNext}>
+                {isLastSlide ? "❮" : "❯"}
+              </Button>
             </div>
-            <Button onClick={isLastSlide ? scrollToStart : scrollNext}>
-              {isLastSlide ? "❮" : "❯"}
-            </Button>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </section>
   );
 };
 

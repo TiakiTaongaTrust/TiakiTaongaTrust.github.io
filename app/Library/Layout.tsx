@@ -1,7 +1,18 @@
-import React from "react";
+import { Subpagehero } from "../components/sub-page-hero/SubPageHero";
 
-const LibraryLayout = () => {
-  return <div>Layout</div>;
-};
+interface LibraryLayoutProps {
+  children: React.ReactNode;
+}
+export default function LibraryLayout({
+  // Now using the title prop correctly
+  children,
+}: LibraryLayoutProps) {
+  return (
+    <>
+      {/* This ensures Subpagehero is always displayed */}
+      <Subpagehero title="Wai 262 Library" herobg="community-bg" />
 
-export default LibraryLayout;
+      {children}
+    </>
+  );
+}

@@ -8,6 +8,7 @@ interface InputFormFieldProps {
   type: "text" | "email" | "password" | "textarea"; // Restrict allowed types
   id: string;
   height?: string;
+  color?: string | "white"; // Add color prop for different types of input fields (e.g., text, password, etc.)
   placeholder?: string;
 }
 
@@ -17,6 +18,7 @@ const InputFormField: React.FC<InputFormFieldProps> = ({
   id,
   placeholder,
   height,
+  color,
 }) => {
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -34,7 +36,7 @@ const InputFormField: React.FC<InputFormFieldProps> = ({
           type={type}
           id={id}
           placeholder={placeholder}
-          className="bg-white"
+          className={`bg-${color}`}
         />
       )}
     </div>

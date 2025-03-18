@@ -8,6 +8,16 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
+      },
+    },
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -15,6 +25,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          hover: "hsl(var(--card-hover))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -67,10 +78,14 @@ export default {
         xl: "var(--font-size-xl)",
         xxs: "var(--font-size-xxs)",
         title: "var(--font-title)",
+        "hero-title": "var(--font-hero-title)",
         "icon-xl": "var(--font-icon-xl)",
       },
       gap: {
         sm: "var(--gap-sm)",
+      },
+      backgroundImage: {
+        "community-bg": "url('/images/sub-hero-1.jpg')",
       },
     },
   },

@@ -48,8 +48,8 @@ export const NAV_ITEMS = [
     innertitle: "Information Library/Glossary",
     listTitle: "Selection of Content Categories",
     megaMenuContent: [
-      { name: "Media (Audio)", link: "#" },
-      { name: "Media (Videos)", link: "#" },
+      { name: "Media (Audio)", link: "/library/media-audio" },
+      { name: "Media (Videos)", link: "/library/media-videos" },
       { name: "Taonga Rangatira ", link: "#" },
       { name: "Wai 262 Claimants", link: "#" },
       { name: "Wai 262 Contemporary Aspects", link: "#" },
@@ -264,5 +264,32 @@ export const FooterLinks = [
   {
     link: "",
     title: "He Wakaputanga T-Shirts",
+  },
+];
+
+export const LibraryLinks = [
+  {
+    link: "/library/media-audio",
+    title: "Media (Audio)",
+  },
+  {
+    link: "/library/media-videos",
+    title: "Media ( Videos)",
+  },
+  {
+    link: "/library/taonga-rangatira ",
+    title: "Taonga Rangatira",
+  },
+  {
+    link: "/library/wai-262-claimants ",
+    title: "Wai 262 Claimants",
+  },
+  {
+    link: "/library/wai-262-contemporary-aspects ",
+    title: "Wai 262 Contemporary Aspects",
+  },
+  {
+    link: "/library/international-treaties",
+    title: "International Treaties",
   },
 ];
