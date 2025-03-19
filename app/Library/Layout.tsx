@@ -11,8 +11,9 @@ export default function LibraryLayout({
     <>
       {/* This ensures Subpagehero is always displayed */}
       <Subpagehero title="Wai 262 Library" herobg="community-bg" />
-
-      {children}
+      <div className="mt-32">
+        <div className="container">{children}</div>
+      </div>
     </>
   );
 }

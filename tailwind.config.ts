@@ -27,6 +27,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
           hover: "hsl(var(--card-hover))",
         },
+        tabs: {
+          DEFAULT: "hsl(var(--tabs))",
+          background: "hsl(var(--tabs-background))",
+          foreground: "hsl(var(--tabs-foreground))",
+          hover: "hsl(var(--tabs-hover))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -78,6 +84,7 @@ export default {
         xl: "var(--font-size-xl)",
         xxs: "var(--font-size-xxs)",
         title: "var(--font-title)",
+        "heading-5": "var(--font-size-heading-5)",
         "hero-title": "var(--font-hero-title)",
         "icon-xl": "var(--font-icon-xl)",
       },

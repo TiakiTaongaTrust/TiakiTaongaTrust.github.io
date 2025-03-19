@@ -4,10 +4,11 @@ import React from "react";
 
 interface CardDetailProps {
   title: string;
+  titleDesc?: string;
   description: string;
   image?: string | any;
   buttonText: string;
-  imageHide: boolean;
+  imageHide?: boolean;
 }
 const CardDetail = ({
   title,
@@ -15,13 +16,14 @@ const CardDetail = ({
   image,
   buttonText,
   imageHide,
+  titleDesc,
 }: CardDetailProps) => {
   return (
     <>
       <div className="bg-card">
-        <div className="px-10 py-10">
+        <div className="px-10 py-10 flex flex-col justify-between h-full">
           <div className="flex justify-between items-center">
-            <h2 className="text-md font-bold text-accent">{title}</h2>
+            <h2 className="text-md font-bold text-accent ">{title}</h2>
           </div>
           {!imageHide && image && (
             <Image
@@ -32,8 +34,9 @@ const CardDetail = ({
               objectFit="cover"
             />
           )}
-          <p className="text-accent mt-2">{description}</p>
-          <Button className="mt-4">{buttonText}</Button>
+          <p className="text-accent mt-2 text-heading-5">{titleDesc}</p>
+          <p className="text-accent mt-2 min-h-[150px]">{description}</p>
+          <Button className="mt-4 w-full">{buttonText}</Button>
         </div>
       </div>
     </>

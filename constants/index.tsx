@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const NAV_ITEMS = [
   {
     link: "/",
@@ -291,5 +293,86 @@ export const LibraryLinks = [
   {
     link: "/library/international-treaties",
     title: "International Treaties",
+  },
+];
+
+export const MediaAudio = [
+  {
+    title: "Sound Track - Pūtātara",
+    description:
+      "The urgent, carrying sound of the pūtātara (shell trumpet) could be heard over a long distance, so it is ideal for signalling or ceremonial purposes. Pūtātara were usually made from native conch shells, but sometimes from triton shells, a non-native species that occasionally washed up on northern beaches. This 19th-century example is made from a conch shell with a carved wooden mouthpiece, and a feather and muka (flax fibre) thong. Listen to the pūtātara being played.",
+    buttonText: "View External Resource",
+  },
+];
+
+export const MediaVideosTabs = [
+  {
+    title: "General Content",
+    cardContent: [
+      {
+        title: "He Whakaputanga 1835 and Te Tiriti o Waitangi 1840",
+        description:
+          "Explanation of He Whakaputanga 1835 and Te Tiriti o Waitangi 1840 by Henare Manukau (Rangatira Professor)",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "No partnership in the Treaty?",
+
+        description:
+          "Hear a kōrero from the He Tohu exhibition about Te Tiriti with Moana Jackson, Dr Donald Brash and Prof Dame Anne Salmond.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Dame Whina Cooper",
+        titleDesc: "Tino Rangatiratanga",
+        description:
+          "Hear a kōrero from the He Tohu exhibition about Te Tiriti with Moana Jackson, Dr Donald Brash and Prof Dame Anne Salmond.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Witi Ihimaera on Dame Whina Cooper",
+        description:
+          "Witi Ihimaera reflects on what makes him most proud to be a New Zealander.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Whaea Rangatira Titiwhai Harawira",
+        titleDesc: "Tino Rangatiratanga",
+        description:
+          "A range of videos that talks about He Whakaputanga Articles.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Tino Rangatiratanga",
+        titleDesc: "Maori Sovereignty",
+        description:
+          "A range of videos that talks about He Whakaputanga Articles.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "A Brave Document",
+        titleDesc: "Exhibition about Te Tiriti",
+        description:
+          "He Tohu exhibition about Te Tiriti with Dame Joan Metge, Moana Jackson, Stefanie Lash, Rt Hon Dame Sian Elias, Dr David Williams and Dr Claudia Orange, DNZM.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Te-Reo Maori",
+        titleDesc: "Maori Language by great Rangatira",
+        description:
+          "A range of videos that talks about He Whakaputanga Articles.",
+        buttonText: "View External Resource",
+      },
+    ],
+  },
+  {
+    title: "Wai 262 Presentations",
+    cardContent: [
+      {
+        title: "Wai 262 Flora and Fauna / Intellectual Property Claim",
+        description: "No Description Available",
+        buttonText: "View External Resource",
+      },
+    ],
   },
 ];
