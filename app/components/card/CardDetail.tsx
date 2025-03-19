@@ -35,7 +35,7 @@ const CardDetail = ({
             />
           )}
           <p className="text-accent mt-2 text-heading-5">{titleDesc}</p>
-          <p className="text-accent mt-2 min-h-[150px]">{description}</p>
+          <p className="text-accent mt-2 min-h-[110px]">{description}</p>
           <Button className="mt-4 w-full">{buttonText}</Button>
         </div>
       </div>

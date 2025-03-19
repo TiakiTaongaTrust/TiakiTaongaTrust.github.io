@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import CardDetail from "@/app/components/card/CardDetail";
 import LibraryNavigation from "@/app/components/navigations/LibraryNavigation";
 import { MediaVideosTabs } from "@/constants";
+import { title } from "process";
 
 const Page = () => {
   // Maintain the active tab state
@@ -18,15 +19,15 @@ const Page = () => {
 
       <div className="flex flex-col p-4">
         {/* Tab Titles Section */}
-        <div className="tabs-titles flex space-x-6 mb-4">
+        <div className="tabs-titles flex justify-center space-x-6 my-12">
           {MediaVideosTabs.map((tab) => (
             <button
               key={tab.title}
               onClick={() => handleTabClick(tab.title)}
-              className={`px-6 py-2 cursor-pointer rounded-md transition-colors duration-200 ${
+              className={` cursor-pointer rounded-full px-10 py-3 ${
                 activeTab === tab.title
-                  ? "font-bold text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "font-bold bg-tabs-background text-white"
+                  : "text-accent font-bold bg-tabs"
               }`}
             >
               {tab.title}
@@ -40,24 +41,18 @@ const Page = () => {
             (tab) =>
               activeTab === tab.title && (
                 <div key={tab.title} className="tab-content">
+                  <h5 className="text-accent text-md font-bold my-10">
+                    {activeTab}
+                  </h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {tab.cardContent.map((card, index) => (
-                      <div
+                      <CardDetail
                         key={index}
-                        className=" p-6 flex flex-col justify-between"
-                      >
-                        <div className="flex flex-col">
-                          <h2 className="text-heading-5 font-semibold text-accent mb-2">
-                            {card.title}
-                          </h2>
-                          <p className="text-sm text-gray-600 flex-grow">
-                            {card.description}
-                          </p>
-                        </div>
-                        <button className="mt-4 inline-flex items-center justify-center px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-all">
-                          {card.buttonText}
-                        </button>
-                      </div>
+                        title={card.title}
+                        description={card.description}
+                        titleDesc={card.titleDesc}
+                        buttonText={card.buttonText}
+                      />
                     ))}
                   </div>
                 </div>
@@ -65,6 +60,8 @@ const Page = () => {
           )}
         </div>
       </div>
+
+      <div className="bg-card h-1 w-full" />
     </>
   );
 };

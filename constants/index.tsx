@@ -310,57 +310,55 @@ export const MediaVideosTabs = [
     title: "General Content",
     cardContent: [
       {
-        title: "He Whakaputanga 1835 and Te Tiriti o Waitangi 1840",
+        title: "He Whakaputanga 1835 & Te Tiriti o Waitangi 1840",
         description:
-          "Explanation of He Whakaputanga 1835 and Te Tiriti o Waitangi 1840 by Henare Manukau (Rangatira Professor)",
+          "Henare Manukau explains He Whakaputanga 1835 and Te Tiriti o Waitangi 1840.",
         buttonText: "View External Resource",
       },
       {
-        title: "No partnership in the Treaty?",
-
+        title: "No Partnership in the Treaty?",
         description:
-          "Hear a kōrero from the He Tohu exhibition about Te Tiriti with Moana Jackson, Dr Donald Brash and Prof Dame Anne Salmond.",
+          "Moana Jackson, Dr Donald Brash, and Prof Dame Anne Salmond discuss the Treaty in the He Tohu exhibition.",
         buttonText: "View External Resource",
       },
       {
         title: "Dame Whina Cooper",
         titleDesc: "Tino Rangatiratanga",
         description:
-          "Hear a kōrero from the He Tohu exhibition about Te Tiriti with Moana Jackson, Dr Donald Brash and Prof Dame Anne Salmond.",
+          "A kōrero on Dame Whina Cooper and her role in Tino Rangatiratanga.",
         buttonText: "View External Resource",
       },
       {
         title: "Witi Ihimaera on Dame Whina Cooper",
         description:
-          "Witi Ihimaera reflects on what makes him most proud to be a New Zealander.",
+          "Witi Ihimaera reflects on what makes him proud to be a New Zealander.",
         buttonText: "View External Resource",
       },
       {
         title: "Whaea Rangatira Titiwhai Harawira",
         titleDesc: "Tino Rangatiratanga",
-        description:
-          "A range of videos that talks about He Whakaputanga Articles.",
+        description: "Videos discussing He Whakaputanga and its articles.",
         buttonText: "View External Resource",
       },
       {
         title: "Tino Rangatiratanga",
-        titleDesc: "Maori Sovereignty",
+        titleDesc: "Māori Sovereignty",
         description:
-          "A range of videos that talks about He Whakaputanga Articles.",
+          "Videos discussing Tino Rangatiratanga and Māori sovereignty.",
         buttonText: "View External Resource",
       },
       {
         title: "A Brave Document",
-        titleDesc: "Exhibition about Te Tiriti",
+        titleDesc: "Te Tiriti Exhibition",
         description:
-          "He Tohu exhibition about Te Tiriti with Dame Joan Metge, Moana Jackson, Stefanie Lash, Rt Hon Dame Sian Elias, Dr David Williams and Dr Claudia Orange, DNZM.",
+          "The He Tohu exhibition featuring Dame Joan Metge, Moana Jackson, and others discussing Te Tiriti.",
         buttonText: "View External Resource",
       },
       {
-        title: "Te-Reo Maori",
-        titleDesc: "Maori Language by great Rangatira",
+        title: "Te Reo Māori",
+        titleDesc: "Māori Language by Great Rangatira",
         description:
-          "A range of videos that talks about He Whakaputanga Articles.",
+          "A collection of videos focused on the importance of Te Reo Māori.",
         buttonText: "View External Resource",
       },
     ],
@@ -369,8 +367,84 @@ export const MediaVideosTabs = [
     title: "Wai 262 Presentations",
     cardContent: [
       {
-        title: "Wai 262 Flora and Fauna / Intellectual Property Claim",
+        title: "Wai 262 Flora & Fauna / Intellectual Property Claim",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Starting Discussions of the Wai 262 Claim",
+        titleDesc: "Historical",
+        description:
+          "A video discussing the initial stages of the Wai 262 claim with Moana Jackson.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Whaea Rangatira",
+        titleDesc: "By Saana Murray (Ngāti Kuri)",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Rangatira Moana Jackson",
+        titleDesc: "Original Claimant, Ngāti Kahungungu",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Hori Parata - Ngāti Wai",
+        titleDesc: "Original Claimant: Witi McMath",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "International Wai 262 Claim (Lawyer)",
+        titleDesc: "By Leo Watson",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Devil in The Detail",
+        titleDesc: "By Leo Watson",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Maui Solomon",
+        titleDesc: "Wai 262 Legal Lawyer",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "NZ Government Approach to the Wai 262",
+        titleDesc: "By Minister Nanaia Mahuta",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+    ],
+  },
+  {
+    title: "Wai 262 - Modern Era",
+    cardContent: [
+      {
+        title: "Te Tiriti o Waitangi",
+        titleDesc: "By Natalie Coates (lawyer)",
+        description: "No description available",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Kīngitanga – Maori King arrival at Waitangi/ Ngapuhi Nui Tonu",
         description: "No Description Available",
+        buttonText: "View External Resource",
+      },
+      {
+        title: "Coalition Government Arrival",
+        description: "No description available.",
+        buttonText: "View External Resource",
+      },
+      {
+        title:
+          "Coalition Government TODAY – Changes to the Principles to Te Tiriti o Waitangi 1840",
+        description: "No description available.",
         buttonText: "View External Resource",
       },
     ],
