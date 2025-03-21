@@ -93,6 +93,7 @@ export default {
       },
       backgroundImage: {
         "community-bg": "url('/images/sub-hero-1.jpg')",
+        "opening-hero-bg": "url('/images/opening-hero.jpg')",
       },
     },
   },

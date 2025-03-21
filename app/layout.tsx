@@ -3,6 +3,7 @@ import { Encode_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import OpeningHome from "./components/opening-home/OpeningHome";
 
 const encodeSans = Encode_Sans({
   variable: "--font-encode_Sans",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${encodeSans.variable} ${encodeSans.variable} antialiased`}
       >
+        <OpeningHome />
         <Header />
         {children}
         <Footer />

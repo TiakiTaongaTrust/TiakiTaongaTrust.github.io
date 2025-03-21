@@ -11,3 +11,6 @@ body {
     @apply bg-community-bg;
   }
 }
+.opening-hero-bg {
+  @apply bg-opening-hero-bg h-full w-full bg-no-repeat bg-cover;
+}
